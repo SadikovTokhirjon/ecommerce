@@ -25,6 +25,9 @@ class Product(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE,default=1)
     description=models.TextField()
     image=models.ImageField(upload_to='upload/products/')
+    # add sale stuff
+    is_sale=models.BooleanField(default=False)
+    sale_price=models.DecimalField(decimal_places=2,max_digits=7)
 
     def __str__(self):
         return f'{self.name}'
